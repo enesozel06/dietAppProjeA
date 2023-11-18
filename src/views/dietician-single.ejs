@@ -1,0 +1,45 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navigation.ejs') %>
+
+<section class="single-block-wrapper section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Sol Taraf -->
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <article class="post">
+                            <div class="post-body">
+                                <div class="entry-content">
+                                    <h2 class="mt-4 mb-3 text-center">Diyetisyen Ücreti: <%= dietician.Dietician.price %> TL</h2>
+                                    <h4 class="text-center">Diyetisyen Özgeçmişi</h4>
+                                    <p> <%= dietician.Dietician.resume %></p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Sağ taraf -->
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="sidebar sidebar-right">
+                    <div class="sidebar-wrap mt-5 mt-lg-0">
+                        <div class="sidebar-widget about mb-5 text-center p-3">
+                            <div class="about-author">
+                                <img src="<%= dietician.profilePicture %>" alt="" class="img-fluid">
+                            </div>
+                            <h4 class="mb-0 mt-4"><%= dietician.firstName %> <%= dietician.lastName %></h4>
+                            <p>Diyetisyen</p>
+                            <button type="button" class="btn" style="border-radius: 20px; background-color: #F8EFEA ; cursor: pointer; color: #1C1C1C;">İletişime geç</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<%- include('partials/end.ejs') %>

@@ -1,0 +1,101 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navigation.ejs') %>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="my-4 text-center">Kayıt Ol</h2>
+            <form enctype="multipart/form-data" method="POST" action="/register">
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">Ad</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Soyad</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-posta Adresi</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Şifre</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="genderType" class="form-label">Cinsiyet</label>
+                    <select class="form-select" id="genderType" name="genderType" required>
+                        <option value="MALE" selected>Erkek</option>
+                        <option value="FEMALE">Kadın</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="profilePicture" class="form-label">Profil Resmi</label>
+                    <input type="file" class="form-control" id="profilePicture" name="profilePicture" accept="image/*" required>
+                </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">Yaş</label>
+                    <input type="number" class="form-control" id="age" name="age" required>
+                </div>
+                <div class="mb-3">
+                    <label for="roleType" class="form-label">Kullanıcı Türü</label>
+                    <select class="form-select" id="roleType" name="roleType">
+                        <option value="USER" selected>Normal Kullanıcı</option>
+                        <option value="DIETICIAN">Diyetisyen</option>
+                    </select>
+                </div>
+                <div class="mb-3" id="userField-1">
+                    <label for="height" class="form-label">Boy</label>
+                    <input type="number" class="form-control" id="height" name="height" >
+                </div>
+                <div class="mb-3" id="userField-2">
+                    <label for="weight" class="form-label">Kilo</label>
+                    <input type="number" class="form-control" id="weight" name="weight" >
+                </div>
+                <div class="mb-3" id="diyetisyenFields-1" style="display: none;">
+                    <label for="resume" class="form-label">Özgeçmiş</label>
+                    <input type="text" class="form-control" id="resume" name="resume">
+                </div>
+                <div class="mb-3" id="diyetisyenFields-2" style="display: none;">
+                    <label for="price" class="form-label">Fiyat</label>
+                    <input type="number" class="form-control" id="price" name="price">
+                </div>
+                <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+            </form>
+            <div class="text-center mt-3">
+                <a>Zaten bir hesabınız mı var? <a style="font-weight:bold;" href="/login">Giriş yapın</a></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("roleType").addEventListener("change", function () {
+    const diyetisyenFields1 = document.getElementById("diyetisyenFields-1");
+    const diyetisyenFields2 = document.getElementById("diyetisyenFields-2");
+    const userField1 = document.getElementById("userField-1");
+    const userField2 = document.getElementById("userField-2");
+    if (this.value === "DIETICIAN") {
+        diyetisyenFields1.style.display = "block";
+        diyetisyenFields2.style.display = "block";
+        userField1.style.display = "none";
+        userField2.style.display = "none";
+        diyetisyenFields1.querySelector("input").required = true;
+        diyetisyenFields2.querySelector("input").required = true;
+        userField1.querySelector("input").required = false;
+        userField2.querySelector("input").required = false;
+    } else {
+        diyetisyenFields1.style.display = "none";
+        diyetisyenFields2.style.display = "none";
+        userField1.style.display = "block";
+        userField2.style.display = "block";
+        diyetisyenFields1.querySelector("input").required = false;
+        diyetisyenFields2.querySelector("input").required = false;
+        userField1.querySelector("input").required = true;
+        userField2.querySelector("input").required = true;
+    }
+});
+</script>
+
+
+<%- include('partials/end.ejs') %>

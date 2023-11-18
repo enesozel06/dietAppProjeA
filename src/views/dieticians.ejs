@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navigation.ejs') %>
+
+<h1 class="my-2 text-center">Diyetisyenler</h1>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+            <% for (let i = 0; i < dieticians.length; i++) { %>
+            <div class="col-lg-4 col-md-4 col-sm-6" style="padding-bottom: 7%;">
+                <div class="category-item">
+                    <div class="category-img">
+                        <a href="/dieticians/<%=dieticians[i].dieticianId %>"><img src="<%=dieticians[i].profilePicture %>" alt="" class="img-fluid w-100"></a>
+                    </div>
+                    <div class="content">
+                        <a href="/dieticians/<%=dieticians[i].dieticianId %>" class="text-color text-uppercase font-sm letter-spacing font-extra" style="font-weight: bold;">₺<%= dieticians[i].Dietician.price %></a>
+                        <h4><a href="/dieticians/<%=dieticians[i].dieticianId %>"><%= dieticians[i].firstName %> <%= dieticians[i].lastName %></a></h4>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            
+        </div>
+    </div>
+</section>
+
+<%- include('partials/end.ejs') %>

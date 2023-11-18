@@ -1,2 +1,1 @@
-# dietAppProjeA
- Proje - A Diyet uygulaması
+# diyet-app

@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navigation.ejs') %>
+
+<section class="single-block-wrapper section-padding">
+    <div class="container" style="display: flex; justify-content: space-around;">
+        <div class="row">
+
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <article class="post">
+                            <div class="post-body text-center">
+                                <div class="entry-content">
+                                    <h2 class="mt-4 mb-3" style="display: inline;"><%= post.title %></h2>
+                                    <h4><img src="<%= post.photo %>" alt="" srcset=""></h4>
+                                    <p> <%= post.content %></p>
+                                    <h4 class="text-center">Oluşturan: <%= post.User.firstName %>  <%= post.User.lastName %></h4>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<%- include('partials/end.ejs') %>

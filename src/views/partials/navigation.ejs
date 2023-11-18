@@ -1,0 +1,43 @@
+<body>
+
+	<header class="header-top bg-grey justify-content-center">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-2 col-md-4 text-center d-none d-lg-block">
+					<a class="navbar-brand " href="/">
+						<img src="/images/Kouyenilogo.png" alt="" class="img-fluid logo">
+					</a>
+				</div>
+
+				<div class="col-lg-8 col-md-12">
+					<nav class="navbar navbar-expand-lg navigation-2 navigation">
+						<a class="navbar-brand text-uppercase d-lg-none" href="/">
+							<img src="/images/Kouyenilogo.png" alt="" class="img-fluid" style="max-width: 25%;">
+						</a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
+							aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="ti-menu"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbar-collapse">
+							<ul id="menu" class="menu navbar-nav mx-auto">
+								<% if(isLoggedIn) { %>
+								<li class="nav-item"><a href="/" class="nav-link <%= path === '/' ? 'active' : '' %>">ANA SAYFA</a></li>
+								<li class="nav-item "><a href="/calorie-calc" class="nav-link <%= path === '/calorie-calc' ? 'active' : '' %>">KALORİ HESAPLA</a></li>
+								<li class="nav-item"><a href="/dieticians" class="nav-link <%= path === '/dieticians' ? 'active' : '' %>">DİYETİSYENLER</a></li>
+								<li class="nav-item"><a href="/create-post" class="nav-link <%= path === '/create-post' ? 'active' : '' %>">POST PAYLAŞ</a></li>
+								<li class="nav-item"><a href="/diet-program" class="nav-link <%= path === '/diet-program' ? 'active' : '' %>">DİYET PROGRAMI</a></li>
+								<li class="nav-item"> <form method="POST" action="/logout" ><button style="background-color: transparent; border: 1px solid transparent; cursor: pointer; outline: none;" type="submit" class="nav-link">ÇIKIŞ YAP</button></form></li>
+								<% } else { %>
+								<li class="nav-item"><a href="/" class="nav-link <%= path === '/' ? 'active' : '' %>">ANA SAYFA</a></li>
+								<li class="nav-item"><a href="/dieticians" class="nav-link <%= path === '/dieticians' ? 'active' : '' %>">DİYETİSYENLER</a></li>
+								<li class="nav-item"><a href="/login" class="nav-link <%= path === '/login' ? 'active' : '' %>">GİRİŞ YAP</a></li>
+								<li class="nav-item"><a href="/register" class="nav-link <%= path === '/register' ? 'active' : '' %>">KAYIT OL</a></li>
+								<% }  %>
+							</ul>
+						</div>
+					</nav>
+				</div>
+				
+			</div>
+		</div>
+	</header>

@@ -1,0 +1,42 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navigation.ejs') %>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="my-4 text-center">Kalori Hesapla</h2>
+            <form method="POST" action="/calorie-calc">
+                <div class="mb-3">
+                    <label for="genderType" class="form-label">Cinsiyet</label>
+                    <select class="form-select" id="genderType" name="genderType" required>
+                        <% if(user.gender === 'MALE') { %>
+                        <option value="MALE" selected>Erkek</option>
+                        <option value="FEMALE">Kadın</option>
+                        <% } else { %>
+                        <option value="MALE">Erkek</option>
+                        <option value="FEMALE" selected>Kadın</option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">Yaş</label>
+                    <input type="number" class="form-control" id="age" name="age" value="<%= user.age %>" required>
+                </div>
+                <div class="mb-3" id="userField-1">
+                    <label for="height" class="form-label">Boy</label>
+                    <input type="number" class="form-control" id="height" name="height" value="<%= user.height %>" >
+                </div>
+                <div class="mb-3" id="userField-2">
+                    <label for="weight" class="form-label">Kilo</label>
+                    <input type="number" class="form-control" id="weight" name="weight" value="<%= user.weight %>" >
+                </div>
+                <div class="text-center mt-3">
+                    <h2>Hesap Sonucu: <%= user.dailyCalorieIntake %></h2>
+                </div>
+                <button type="submit" class="btn btn-primary">Hesapla</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/end.ejs') %>

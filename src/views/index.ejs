@@ -1,0 +1,34 @@
+<%- include('partials/header.ejs') %>
+
+<%- include('partials/navigation.ejs') %>
+	
+	<h1 class="my-4 text-center">Postlar</h1>
+	<!-- Yazılar -->
+	<section class="section-padding">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="row">
+						<% for (let i = 0; i < posts.length; i++) { %>
+						<div class="col-lg-3 col-md-6">
+							<article class="post-grid mb-5">
+								<a class="post-thumb mb-4 d-block" href="/posts/<%= posts[i].id %>">
+									<img src="<%= posts[i].photo %>" alt="" class="img-fluid w-100 h-100">
+								</a>
+								<span class="cat-name text-color font-extra text-sm text-uppercase letter-spacing-1">POST</span>
+								<h3 class="post-title mt-1"><a href="/posts/<%= posts[i].id %>"><%= posts[i].title %></a></h3>
+
+								<span class="text-muted letter-spacing text-uppercase font-sm" style="font-weight: bold;"><%= posts[i].User.firstName %> <%= posts[i].User.lastName %></span>
+
+							</article>
+						</div>
+						<% } %>
+					</div>
+				</div>
+
+				
+			</div>
+		</div>
+	</section>
+
+<%- include('partials/end.ejs') %>
